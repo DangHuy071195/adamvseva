@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Human(name,gender,weight) {
+        this.name = name;
+        this.gender =gender;
+        this.weight = weight;
+        this.isMale = function () {
+            if(this.gender){
+                return true;
+            }
+            return false;
+        }
+        this.setGender = function (newGender) {
+            this.gender = newGender;
+        }
+        this.checkApple = function (apple) {
+            return apple.isEmpty();
+
+        }
+        this.eat = function (apple) {
+            if(apple.isEmpty()){
+               return this.weight;
+            }else{
+                this.weight++;
+                apple.decrease();
+            }
+        }
+        this.say = function (string) {
+            alert("alonso hohoho");
+        }
+        this.getName = function () {
+            return this.name;
+        }
+        this.setName = function (newname) {
+            this.name = newname;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.setWeight = function (newWeight) {
+            this.weight = newWeight;
+        }
+    }
+    function Apple(weight) {
+        let valueWeight = 10;
+        this.weight = valueWeight;
+        this.decrease = function () {
+            if(this.weight > 0){
+                this.weight --;
+
+            }else{
+                this.weight;
+            }
+        }
+        this.isEmpty = function () {
+            if(this.weight > 0) {
+                return false;
+            }
+            return true;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        }
+    }
+    let apple1 = new Apple();
+    let person1 = new Human("Adam",true,59);
+    let person2 = new Human("Eva",false,60);
+    for(let i = 0; i < 5 ;i ++){
+    person2.eat(apple1);
+    person1.eat(apple1);
+    document.write("can nang cua Eva :" + person2.getWeight()+ "<br/>");
+    document.write("can nang cua Adam :" + person1.getWeight()+ "<br/>");
+    document.write( "can nag cua apple :" + apple1.getWeight() + "<br/>");
+    }
+</script>
+</body>
+</html>
